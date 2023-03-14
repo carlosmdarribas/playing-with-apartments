@@ -17,6 +17,5 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false})); 
 
 app.use(routes);
-app.use('/public', express.static(config.PUBLIC_DIR));
 
 export default app;

@@ -12,10 +12,7 @@ let options = {
         },
         host: `${config.PUBLIC_SERVER_URL}:${config.PUBLIC_SERVER_PORT}` ,
         basePath: '/',
-        produces: [
-            "application/json",
-            "application/xml"
-        ],
+        produces: ["application/json"],
         schemes: config.PUBLIC_SERVER_HTTPS,
         securityDefinitions: {
             JWT: {
