@@ -1,0 +1,17 @@
+{
+    "apps" : [
+      {
+        "name": "playing-with-apartments",
+        "interpreter": "/usr/bin/node",
+        "cwd": "/opt/playing-with-apartments/_work/playing-with-apartments/playing-with-apartments/out",
+        "script": "index.js",
+        "out_file": "/var/log/playing-with-apartments.log",
+        "error_file": "/var/log/playing-with-apartments.log",
+        "env": {
+          "PUBLIC_SERVER_PORT": 2777,
+          "PUBLIC_SERVER_HTTPS": ["HTTPS"]
+        }
+      }
+    ]
+  }
+

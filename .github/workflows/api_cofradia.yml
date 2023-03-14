@@ -1,0 +1,26 @@
+name: deploy api
+
+on:
+  push:
+    branches: main
+
+jobs:
+  download: 
+    runs-on: [self-hosted, linux, x64]  
+    steps:  
+    - name: download new changes
+      uses: actions/checkout@v2
+  build_api:
+    runs-on: [self-hosted, linux, x64]  
+    needs: download
+    steps:  
+    - name: install dependencies
+      run: cd /opt/playing-with-apartments/_work/playing-with-apartments/playing-with-apartments; npm install
+    - name: build api
+      run: cd /opt/playing-with-apartments/_work/playing-with-apartments/playing-with-apartments; npm run build
+  restart:
+    runs-on: [self-hosted, linux, x64]
+    needs: [build_api]
+    steps:
+    - name: restarting pm2 services
+      run: /usr/bin/pm2 restart /opt/playing-with-apartments/_work/playing-with-apartments/playing-with-apartments/pm2.json
